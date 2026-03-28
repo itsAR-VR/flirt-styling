@@ -22,32 +22,32 @@ const personas = [
 
 function Hero() {
   return (
-    <section className="mx-auto w-full max-w-[980px] px-[77px] pt-[108px]">
-      <div className="max-w-[800px]">
-        <div className="mb-[18px] inline-flex h-[24px] items-center rounded-[6px] bg-[var(--pink)] px-[10px] font-[family:var(--font-regular-display)] text-[11px] leading-none tracking-[0.04em] text-[#000]">
-          • Denver, CO - Online Services
+    <section className="mx-auto w-full max-w-[980px] px-[77px] pt-[98px]">
+      <div className="max-w-[829px]">
+        <div className="mb-[9px] inline-flex h-[20px] items-center rounded-[3px] bg-[#ffe4eb] px-[12px] font-[family:var(--font-medium)] text-[13px] leading-none text-[var(--pink-text)]">
+          Denver, CO - Online Services
         </div>
-        <div>
-          <h1 className="font-[family:var(--font-display)] text-[50px] leading-[70px] tracking-[0] text-[var(--text)]">Real Style for Real Life.</h1>
-          <h2 className="font-[family:var(--font-display)] text-[50px] leading-[70px] tracking-[0] text-[var(--text)]">FLIRT STYLING</h2>
+        <div className="ml-[4px]">
+          <p className="font-[family:var(--font-display)] text-[50px] leading-[1.4] text-[var(--text)]">Real Style for Real Life.</p>
+          <p className="-mt-[13px] font-[family:var(--font-display)] text-[25px] leading-[1.4] text-[var(--text-dark)]">FLIRT STYLING</p>
         </div>
-        <div className="mt-[16px] max-w-[827px] space-y-[16px] font-[family:var(--font-regular-display)] text-[19px] leading-[22.8px] text-[var(--text)]">
-          <p>Flirt was built on a simple belief: Great style should be for everyone.</p>
-          <p>
-            Sydney has spent over a decade in fashion and retail, watching people struggle to find clothes that made them feel confident. Not because they didn&apos;t care, but because nobody made it easy for them.
+        <div className="mt-[2px] ml-[2px] max-w-[827px] space-y-[10px] text-[19px] text-[var(--text)]">
+          <p className="font-[family:var(--font-semibold)] leading-[1.2]">Flirt was built on a simple belief: Great style should be for everyone.</p>
+          <p className="font-[family:var(--font-medium)] leading-[1.2]">
+            Sydney has spent over a decade in fashion and retail watching people struggle to find clothes that made them feel confident. Not because they didn&apos;t care, but because nobody made it easy for them.
           </p>
-          <p>Flirt exists to change that.</p>
-          <p>
-            Whether you&apos;re a busy professional, a parent on the go, or just someone who&apos;s tired of not knowing where to start, you deserve style that fits your budget, works with what you already own, and actually makes sense for your life.
+          <p className="font-[family:var(--font-medium-italic)] leading-[0.9]">Flirt exists to change that.</p>
+          <p className="font-[family:var(--font-medium)] leading-[1.2]">
+            Whether you&apos;re a busy professional, a parent on the go, or just someone who&apos;s tired of not knowing where to start, you deserve style that <span className="font-[family:var(--font-medium-italic)]">fits your budget, works with what you already own, and actually makes sense for your life.</span>
           </p>
-          <p>We do the work. You just get dressed and feel like yourself.</p>
+          <p className="font-[family:var(--font-semibold)] leading-[0.9]">We do the work. You just get dressed and feel like yourself.</p>
         </div>
-        <div className="mt-[18px] flex items-center gap-[18px]">
-          <a href="https://app.squarespacescheduling.com/schedule.php?owner=32794738" target="_blank" rel="noreferrer" className="wix-button-primary min-w-[298px] justify-center">
-            <span className="mr-[8px] inline-block text-[11px]">✦</span>
+        <div className="mt-[3px] flex items-start gap-[43px]">
+          <a href="https://calendar.app.google/H3H8wtu1w3xfAZVT9" target="_blank" rel="noreferrer" className="wix-button-primary min-w-[298px] justify-center">
+            <span className="mr-[4.5px] inline-block text-[17px] leading-none">↗</span>
             Book Your Free Intro Call
           </a>
-          <Link href="/online-styling" className="wix-button-secondary">
+          <Link href="/about" className="mt-[5px] font-[family:var(--font-medium)] text-[18px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
             See Our Services
           </Link>
         </div>
@@ -58,13 +58,15 @@ function Hero() {
 
 function PersonaSection() {
   return (
-    <section className="mx-auto mt-[94px] w-full max-w-[980px] px-[77px]">
-      <h2 className="font-[family:var(--font-display)] text-[32px] leading-[1.2] text-[var(--text)]">WHO IS THIS FOR</h2>
-      <div className="mt-[18px] grid grid-cols-4 gap-x-[18px]">
+    <section className="mx-auto mt-[8px] w-full max-w-[980px] px-[71px]">
+      <h2 className="font-[family:var(--font-display)] text-[20px] leading-[1.4] text-[var(--text-dark)]">WHO IS THIS FOR</h2>
+      <div className="mt-[3px] grid grid-cols-4 gap-x-[0px]">
         {personas.map((persona) => (
-          <div key={persona.title} className="rounded-[10px] border border-[rgba(39,20,1,0.12)] bg-white px-[14px] py-[14px]">
-            <h3 className="font-[family:var(--font-display)] text-[22px] leading-[1.15] text-[var(--text)]">{persona.title}</h3>
-            <p className="mt-[8px] font-[family:var(--font-regular-display)] text-[16px] leading-[19.5px] text-[var(--text)]">{persona.body}</p>
+          <div key={persona.title} className="w-[200px]">
+            <div className="min-h-[130px] rounded-[11px] border-[5px] border-[#fbbfd4] bg-[#f3edea] px-[15px] py-[12px] transition-colors duration-[400ms] hover:bg-[#ffe8f0]">
+              <p className="font-[family:var(--font-display)] text-[18px] leading-[1.0] text-[var(--text-dark)]">{persona.title}</p>
+              <p className="mt-[8px] font-[family:var(--font-medium)] text-[15px] leading-[1.2] text-[var(--text)]">{persona.body}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -84,17 +86,17 @@ function ServiceSection({
   packages: typeof onlinePackages;
 }) {
   return (
-    <section className="mx-auto mt-[54px] w-full max-w-[980px] px-[77px]">
-      <div className="flex items-end justify-between gap-[20px]">
-        <div className="max-w-[760px]">
-          <h2 className="font-[family:var(--font-display)] text-[32px] leading-[1.2] text-[var(--text)]">{title}</h2>
-          <p className="mt-[10px] font-[family:var(--font-regular-display)] text-[18px] leading-[22.8px] text-[var(--text)]">{description}</p>
+    <section className="mx-auto mt-[10px] w-full max-w-[980px] px-[71px]">
+      <div className="flex items-start justify-between gap-[20px]">
+        <div className="max-w-[837px]">
+          <h2 className="font-[family:var(--font-display)] text-[20px] leading-[1.4] text-[var(--text-dark)]">{title}</h2>
+          <p className="mt-[1px] font-[family:var(--font-medium)] text-[18px] leading-[1.2] text-[var(--text)]">{description}</p>
         </div>
-        <Link href={href} className="wix-button-secondary">
+        <Link href={href} className="mt-[1px] font-[family:var(--font-medium)] text-[18px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
           See Full Details
         </Link>
       </div>
-      <div className="mt-[18px] grid grid-cols-3 gap-[16px]">
+      <div className="mt-[10px] grid grid-cols-3 gap-x-[20px] gap-y-[0px]">
         {packages.map((pkg) => (
           <PackagePreviewCard key={pkg.name} pkg={pkg} />
         ))}
@@ -112,13 +114,13 @@ export default function HomePage() {
         <PersonaSection />
         <ServiceSection
           title="ONLINE STYLING SERVICES"
-          description="All packages include a video consultation and a personally selected, shoppable styling guide PDF with direct links, brand details, sizing notes, and return information."
-          href="/online-styling"
+          description="All packages include a video consultation and a personally selected, shoppable styling guide, delivered as a PDF with direct links, brand details, sizing notes, and return information for every piece."
+          href="/about"
           packages={onlinePackages}
         />
         <ServiceSection
           title="CLOSET CLEANOUT & ORGANIZATION SERVICES"
-          description="All services include a video consultation and an in-person session with a Flirt Stylist at your home. Honest, judgment-free, and designed to leave your closet lighter, cleaner, and more usable."
+          description="All services include a video consultation and an in-person session with a Flirt Stylist at your home, honest, judgment-free, and done right."
           href="/closet-services"
           packages={closetPackages}
         />

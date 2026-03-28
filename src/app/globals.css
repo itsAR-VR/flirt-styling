@@ -4,32 +4,30 @@
   --background: #fffdfb;
   --surface: #fffdfb;
   --foreground: #271401;
-  --text: #271401;
+  --text: #57321d;
+  --text-dark: #33190a;
   --pink: #f5a1be;
   --pink-text: #c9537c;
+  --price-pink: #c75c83;
   --button: #f5a1be;
-  --button-hover: #f8bdd0;
+  --button-hover: #ffe8f0;
+  --button-text-hover: #c9537c;
   --border: #d8d1cb;
-  --font-display: "Bogart";
-  --font-regular-display: "Bogart Regular";
+  --font-display: "Bogart Bold Real";
+  --font-semibold: "Bogart Semibold Real";
+  --font-medium: "Bogart Medium Real";
+  --font-medium-italic: "Bogart Medium Italic Real";
+  --font-price: "Calistoga Real";
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-regular-display);
+  --font-sans: var(--font-medium);
 }
 
 @font-face {
-  font-family: "Bogart";
-  src: url("/fonts/bogart-semibold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bogart";
+  font-family: "Bogart Bold Real";
   src: url("/fonts/bogart-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
@@ -37,8 +35,32 @@
 }
 
 @font-face {
-  font-family: "Bogart Regular";
+  font-family: "Bogart Semibold Real";
   src: url("/fonts/bogart-regular.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bogart Medium Real";
+  src: url("/fonts/bogart-medium-real.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bogart Medium Italic Real";
+  src: url("/fonts/bogart-medium-italic-real.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calistoga Real";
+  src: url("/fonts/calistoga-real.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -48,7 +70,9 @@ body {
   min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-regular-display), serif;
+  font-family: var(--font-medium), serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -78,18 +102,18 @@ img {
 .wix-button-primary {
   min-height: 35px;
   border-radius: 7px;
-  border: 1px solid #271401;
+  border: 1px solid #c75c83;
   background: var(--button);
   padding: 0 16px;
-  font-family: var(--font-regular-display), serif;
-  font-size: 14px;
+  font-family: var(--font-display), serif;
+  font-size: 17px;
   line-height: 1;
-  color: #000;
+  color: #fffdfb;
 }
 
 .wix-button-primary:hover {
   background: var(--button-hover);
-  color: var(--pink-text);
+  color: var(--button-text-hover);
 }
 
 .wix-button-secondary {
@@ -97,7 +121,7 @@ img {
   border: none;
   background: transparent;
   padding: 0;
-  font-family: var(--font-regular-display), serif;
+  font-family: var(--font-medium), serif;
   font-size: 18px;
   line-height: 1.2;
   color: var(--text);

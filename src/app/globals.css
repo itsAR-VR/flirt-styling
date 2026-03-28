@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffdfb;
+  --surface: #fffdfb;
+  --surface-alt: #fdf4ef;
+  --foreground: #271401;
+  --text: #271401;
+  --text-soft: #57321d;
+  --pink: #f5a1be;
+  --pink-soft: #ffe4eb;
+  --pink-text: #c9537c;
+  --button: #f3edea;
+  --button-hover: #ffe8f0;
+  --border: #d6cfcb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(245, 161, 190, 0.28);
+}
+
+@font-face {
+  font-family: "Bogart";
+  src: local("Bogart Trial"), local("Bogart"), local("Georgia");
+  font-display: swap;
+}
+
+:root {
+  --font-display: "Bogart", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.section-shell {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 4.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.section-label {
+  font-size: 0.76rem;
+  line-height: 1.2;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 9vw, 7.25rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+  color: var(--text);
+}
+
+.eyebrow-pill,
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrow-pill {
+  padding: 0.95rem 1.35rem;
+}
+
+.pill-badge {
+  padding: 0.8rem 1rem;
+  background: var(--pink-soft);
+  color: var(--pink-text);
+}
+
+.button-primary,
+.button-secondary,
+.button-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  border: 1px solid var(--border);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.button-primary {
+  background: var(--button);
+  color: var(--text);
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  background: var(--button-hover);
+  box-shadow: 0 14px 32px rgba(201, 83, 124, 0.12);
+}
+
+.button-secondary,
+.button-outline {
+  background: transparent;
+  color: var(--text);
+}
+
+.button-secondary:hover,
+.button-outline:hover {
+  transform: translateY(-1px);
+  background: white;
+  border-color: var(--pink);
+  color: var(--pink-text);
+}
+
+@media (max-width: 640px) {
+  .section-shell {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3.5rem;
+  }
+
+  .button-primary,
+  .button-secondary,
+  .button-outline {
+    width: 100%;
+  }
+}

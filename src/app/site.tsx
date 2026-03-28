@@ -18,7 +18,7 @@ export const onlinePackages: PackageCard[] = [
     eyebrow: "starter",
     subtitle: "Refresh your look",
     bullets: ["2 clothing categories", "5 pieces each", "10 total"],
-    note: "Handpicked for you",
+    note: "Book this package",
   },
   {
     name: "The Hookup",
@@ -26,7 +26,7 @@ export const onlinePackages: PackageCard[] = [
     eyebrow: "most popular!",
     subtitle: "Elevate your everyday",
     bullets: ["4 clothing categories", "5 pieces each", "20 total"],
-    note: "Handpicked for you",
+    note: "Book this package",
     featured: true,
   },
   {
@@ -35,7 +35,7 @@ export const onlinePackages: PackageCard[] = [
     eyebrow: "premium",
     subtitle: "Full wardrobe refresh",
     bullets: ["6 clothing categories", "5 pieces each", "30 total"],
-    note: "Handpicked for you",
+    note: "Book this package",
   },
 ];
 
@@ -69,24 +69,22 @@ export const closetPackages: PackageCard[] = [
 
 export function SiteHeader() {
   return (
-    <header className="w-full bg-[var(--surface)]">
-      <div className="mx-auto flex w-full max-w-[980px] items-center justify-between px-[77px] pt-[24px] pb-[18px]">
-        <Link href="/" className="shrink-0">
+    <header className="pointer-events-none absolute left-0 top-0 z-30 w-full bg-transparent">
+      <div className="mx-auto flex w-full max-w-[980px] items-start justify-between px-[77px] pt-[32px]">
+        <Link href="/" className="pointer-events-auto shrink-0">
           <Image src="/assets/logo-full.png" alt="Flirt Styling" width={310} height={90} className="h-auto w-[155px]" priority />
         </Link>
-        <div className="flex items-center gap-[34px]">
-          <nav className="hidden items-center gap-[28px] lg:flex">
+        <div className="pointer-events-auto flex items-center gap-[24px] pt-[6px]">
+          <nav className="hidden items-center gap-[26px] lg:flex">
             <Link href="/" className="font-[family:var(--font-display)] text-[19px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
               HOME
             </Link>
             <Link href="/about" className="font-[family:var(--font-display)] text-[19px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
               ABOUT US
             </Link>
-            <Link href="/about" className="font-[family:var(--font-display)] text-[19px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
-              About Us
-            </Link>
           </nav>
-          <a href="#booking-cta" className="wix-button-primary hidden sm:inline-flex">
+          <a href="https://app.squarespacescheduling.com/schedule.php?owner=32794738" target="_blank" rel="noreferrer" className="wix-button-primary hidden sm:inline-flex">
+            <span className="mr-[8px] inline-block text-[11px]">✦</span>
             Book Your Free Intro Call
           </a>
         </div>
@@ -97,14 +95,15 @@ export function SiteHeader() {
 
 export function FinalCta() {
   return (
-    <section className="mx-auto mt-[48px] w-full max-w-[980px] px-[77px] pb-[18px]" id="booking-cta">
-      <div className="rounded-[0px] bg-[var(--surface)] py-[6px] text-left">
+    <section className="mx-auto mt-[36px] w-full max-w-[980px] px-[77px] pb-[10px]" id="booking-cta">
+      <div className="py-[6px] text-left">
         <p className="font-[family:var(--font-display)] text-[30px] leading-[1.2] text-[var(--text)]">Not sure where to start?</p>
-        <p className="mt-[10px] max-w-[770px] font-[family:var(--font-regular-display)] text-[18px] leading-[1.2] text-[var(--text)]">
+        <p className="mt-[10px] max-w-[780px] font-[family:var(--font-regular-display)] text-[18px] leading-[22.8px] text-[var(--text)]">
           Book a free intro call with a Flirt Stylist. She&apos;ll walk you through the services, answer your questions, and help you figure out what&apos;s right for you.
         </p>
-        <div className="mt-[16px] flex items-center gap-[20px]">
-          <a href="mailto:hello.shopflirt@gmail.com" className="wix-button-primary">
+        <div className="mt-[14px] flex items-center gap-[20px]">
+          <a href="https://app.squarespacescheduling.com/schedule.php?owner=32794738" target="_blank" rel="noreferrer" className="wix-button-primary">
+            <span className="mr-[8px] inline-block text-[11px]">✦</span>
             Book Your Free Intro Call
           </a>
         </div>
@@ -115,44 +114,52 @@ export function FinalCta() {
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto w-full max-w-[980px] px-[77px] pb-[34px] pt-[8px] text-center">
-      <div className="flex items-center justify-center gap-[14px] pb-[12px]">
+    <footer className="mx-auto w-full max-w-[980px] px-[77px] pb-[18px] pt-[10px] text-center">
+      <div className="flex items-center justify-center gap-[14px] pb-[10px]">
         <a href="https://www.instagram.com/flirt.withstyle/" target="_blank" rel="noreferrer">
           <Image src="/assets/instagram.png" alt="Instagram" width={35} height={35} className="h-[35px] w-[35px]" />
         </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+        <a href="https://www.facebook.com/flirt.withstyle" target="_blank" rel="noreferrer">
           <Image src="/assets/facebook.png" alt="Facebook" width={35} height={35} className="h-[35px] w-[35px]" />
         </a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+        <a href="https://www.linkedin.com/company/flirt-styling" target="_blank" rel="noreferrer">
           <Image src="/assets/linkedin.png" alt="LinkedIn" width={35} height={35} className="h-[35px] w-[35px]" />
         </a>
       </div>
-      <p className="font-[family:var(--font-regular-display)] text-[14px] leading-[1.2] text-[var(--text)]">© 2025 by FLIRT Styling LLC. Powered and secured by Wix</p>
+      <p className="font-[family:var(--font-regular-display)] text-[14px] leading-[1.2] text-[var(--text)]">© 2025 by FLIRT Styling LLC</p>
     </footer>
   );
 }
 
 export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
   return (
-    <article className="rounded-[8px] border border-[rgba(39,20,1,0.12)] bg-white px-[18px] py-[18px] shadow-none transition-colors duration-[400ms] hover:border-[rgba(201,83,124,0.28)]">
-      <div className="flex items-start justify-between gap-[12px]">
+    <article className="rounded-[10px] border border-[rgba(39,20,1,0.14)] bg-white px-[16px] py-[16px] shadow-none">
+      <div className="flex items-start justify-between gap-[10px]">
         <div>
-          <h3 className="font-[family:var(--font-display)] text-[28px] leading-[1.1] text-[var(--text)]">{pkg.name}</h3>
-          <p className="mt-[8px] font-[family:var(--font-display)] text-[26px] leading-[1.05] text-[var(--text)]">{pkg.price}</p>
+          <h3 className="font-[family:var(--font-display)] text-[27px] leading-[1.08] text-[var(--text)]">{pkg.name}</h3>
+          <p className="mt-[6px] font-[family:var(--font-display)] text-[24px] leading-[1.05] text-[var(--text)]">{pkg.price}</p>
         </div>
-        {pkg.eyebrow ? <span className="font-[family:var(--font-regular-display)] text-[14px] leading-[1.2] text-[var(--pink-text)]">{pkg.eyebrow}</span> : null}
+        {pkg.eyebrow ? <span className="font-[family:var(--font-regular-display)] text-[13px] leading-[1.2] text-[var(--pink-text)]">{pkg.eyebrow}</span> : null}
       </div>
-      <p className="mt-[12px] font-[family:var(--font-display)] text-[20px] leading-[1.15] text-[var(--text)]">{pkg.subtitle}</p>
-      <ul className="mt-[14px] space-y-[2px] font-[family:var(--font-regular-display)] text-[16px] leading-[1.22] text-[var(--text)]">
+      <p className="mt-[10px] font-[family:var(--font-display)] text-[19px] leading-[1.12] text-[var(--text)]">{pkg.subtitle}</p>
+      <ul className="mt-[12px] space-y-[2px] font-[family:var(--font-regular-display)] text-[15px] leading-[1.2] text-[var(--text)]">
         {pkg.bullets.map((bullet) => (
           <li key={bullet}>{bullet}</li>
         ))}
       </ul>
-      <div className="mt-[14px]">
-        <a href="#booking-cta" className="wix-button-primary text-[12px]">
+      <div className="mt-[12px]">
+        <a href="https://app.squarespacescheduling.com/schedule.php?owner=32794738" target="_blank" rel="noreferrer" className="wix-button-primary text-[12px]">
           {pkg.note}
         </a>
       </div>
     </article>
+  );
+}
+
+export function ChatWidgetMock() {
+  return (
+    <div className="fixed bottom-[22px] right-[18px] z-40 flex h-[58px] w-[58px] items-center justify-center rounded-full border border-[rgba(39,20,1,0.12)] bg-white shadow-[0_4px_18px_rgba(39,20,1,0.14)]">
+      <div className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#111] text-[18px] text-white">…</div>
+    </div>
   );
 }

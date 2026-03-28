@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FinalCta, PackagePreviewCard, SiteFooter, SiteHeader, closetPackages, onlinePackages } from "./site";
+import { ChatWidgetMock, FinalCta, PackagePreviewCard, SiteFooter, SiteHeader, closetPackages, onlinePackages } from "./site";
 
 const personas = [
   {
@@ -22,16 +22,16 @@ const personas = [
 
 function Hero() {
   return (
-    <section className="mx-auto w-full max-w-[980px] px-[77px] pt-[8px]">
-      <div className="max-w-[827px]">
-        <div className="mb-[26px] inline-flex h-[30px] items-center rounded-[15px] border border-[rgba(39,20,1,0.08)] bg-white px-[14px] font-[family:var(--font-regular-display)] text-[12px] leading-none tracking-[0.08em] text-[var(--text)]">
+    <section className="mx-auto w-full max-w-[980px] px-[77px] pt-[108px]">
+      <div className="max-w-[800px]">
+        <div className="mb-[18px] inline-flex h-[24px] items-center rounded-[6px] bg-[var(--pink)] px-[10px] font-[family:var(--font-regular-display)] text-[11px] leading-none tracking-[0.04em] text-[#000]">
           • Denver, CO - Online Services
         </div>
-        <div className="space-y-[6px]">
+        <div>
           <h1 className="font-[family:var(--font-display)] text-[50px] leading-[70px] tracking-[0] text-[var(--text)]">Real Style for Real Life.</h1>
           <h2 className="font-[family:var(--font-display)] text-[50px] leading-[70px] tracking-[0] text-[var(--text)]">FLIRT STYLING</h2>
         </div>
-        <div className="mt-[22px] max-w-[827px] space-y-[18px] font-[family:var(--font-regular-display)] text-[19px] leading-[22.8px] text-[var(--text)]">
+        <div className="mt-[16px] max-w-[827px] space-y-[16px] font-[family:var(--font-regular-display)] text-[19px] leading-[22.8px] text-[var(--text)]">
           <p>Flirt was built on a simple belief: Great style should be for everyone.</p>
           <p>
             Sydney has spent over a decade in fashion and retail, watching people struggle to find clothes that made them feel confident. Not because they didn&apos;t care, but because nobody made it easy for them.
@@ -42,8 +42,9 @@ function Hero() {
           </p>
           <p>We do the work. You just get dressed and feel like yourself.</p>
         </div>
-        <div className="mt-[22px] flex items-center gap-[20px]">
-          <a href="#booking-cta" className="wix-button-primary min-w-[298px] justify-center">
+        <div className="mt-[18px] flex items-center gap-[18px]">
+          <a href="https://app.squarespacescheduling.com/schedule.php?owner=32794738" target="_blank" rel="noreferrer" className="wix-button-primary min-w-[298px] justify-center">
+            <span className="mr-[8px] inline-block text-[11px]">✦</span>
             Book Your Free Intro Call
           </a>
           <Link href="/online-styling" className="wix-button-secondary">
@@ -57,13 +58,13 @@ function Hero() {
 
 function PersonaSection() {
   return (
-    <section className="mx-auto mt-[54px] w-full max-w-[980px] px-[77px]">
+    <section className="mx-auto mt-[94px] w-full max-w-[980px] px-[77px]">
       <h2 className="font-[family:var(--font-display)] text-[32px] leading-[1.2] text-[var(--text)]">WHO IS THIS FOR</h2>
-      <div className="mt-[20px] grid grid-cols-2 gap-x-[40px] gap-y-[18px]">
+      <div className="mt-[18px] grid grid-cols-4 gap-x-[18px]">
         {personas.map((persona) => (
-          <div key={persona.title} className="py-[2px]">
-            <h3 className="font-[family:var(--font-display)] text-[24px] leading-[1.2] text-[var(--text)]">{persona.title}</h3>
-            <p className="mt-[6px] font-[family:var(--font-regular-display)] text-[18px] leading-[22.8px] text-[var(--text)]">{persona.body}</p>
+          <div key={persona.title} className="rounded-[10px] border border-[rgba(39,20,1,0.12)] bg-white px-[14px] py-[14px]">
+            <h3 className="font-[family:var(--font-display)] text-[22px] leading-[1.15] text-[var(--text)]">{persona.title}</h3>
+            <p className="mt-[8px] font-[family:var(--font-regular-display)] text-[16px] leading-[19.5px] text-[var(--text)]">{persona.body}</p>
           </div>
         ))}
       </div>
@@ -83,9 +84,9 @@ function ServiceSection({
   packages: typeof onlinePackages;
 }) {
   return (
-    <section className="mx-auto mt-[58px] w-full max-w-[980px] px-[77px]">
-      <div className="flex items-end justify-between gap-[24px]">
-        <div className="max-w-[780px]">
+    <section className="mx-auto mt-[54px] w-full max-w-[980px] px-[77px]">
+      <div className="flex items-end justify-between gap-[20px]">
+        <div className="max-w-[760px]">
           <h2 className="font-[family:var(--font-display)] text-[32px] leading-[1.2] text-[var(--text)]">{title}</h2>
           <p className="mt-[10px] font-[family:var(--font-regular-display)] text-[18px] leading-[22.8px] text-[var(--text)]">{description}</p>
         </div>
@@ -93,7 +94,7 @@ function ServiceSection({
           See Full Details
         </Link>
       </div>
-      <div className="mt-[18px] grid grid-cols-3 gap-[18px]">
+      <div className="mt-[18px] grid grid-cols-3 gap-[16px]">
         {packages.map((pkg) => (
           <PackagePreviewCard key={pkg.name} pkg={pkg} />
         ))}
@@ -106,7 +107,7 @@ export default function HomePage() {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1 bg-[var(--surface)] pb-[24px]">
+      <main className="flex-1 bg-[var(--surface)] pb-[18px]">
         <Hero />
         <PersonaSection />
         <ServiceSection
@@ -124,6 +125,7 @@ export default function HomePage() {
         <FinalCta />
       </main>
       <SiteFooter />
+      <ChatWidgetMock />
     </>
   );
 }

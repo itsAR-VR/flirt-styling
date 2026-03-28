@@ -3,22 +3,57 @@
 :root {
   --background: #fffdfb;
   --surface: #fffdfb;
-  --surface-alt: #fdf4ef;
+  --surface-alt: #fdf5f1;
   --foreground: #271401;
   --text: #271401;
   --text-soft: #57321d;
   --pink: #f5a1be;
-  --pink-soft: #ffe4eb;
+  --pink-soft: #ffe8f0;
   --pink-text: #c9537c;
   --button: #f3edea;
   --button-hover: #ffe8f0;
-  --border: #d6cfcb;
+  --border: #d8d1cb;
+  --site-width: 980px;
+  --font-display: "Bogart";
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
+}
+
+@font-face {
+  font-family: "Bogart";
+  src: url("/fonts/bogart-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bogart";
+  src: url("/fonts/bogart-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bogart";
+  src: url("/fonts/bogart-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bogart";
+  src: url("/fonts/bogart-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 html {
@@ -29,51 +64,52 @@ body {
   min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
 }
 
 a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+}
+
 ::selection {
   background: rgba(245, 161, 190, 0.28);
 }
 
-@font-face {
-  font-family: "Bogart";
-  src: local("Bogart Trial"), local("Bogart"), local("Georgia");
-  font-display: swap;
-}
-
-:root {
-  --font-display: "Bogart", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.page-shell {
+  width: 100%;
+  max-width: calc(var(--site-width) + 90px);
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .section-shell {
   width: 100%;
-  max-width: 1240px;
+  max-width: calc(var(--site-width) + 90px);
   margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 4.5rem;
-  padding-bottom: 1.5rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 56px;
+  padding-bottom: 10px;
 }
 
 .section-label {
-  font-size: 0.76rem;
+  font-family: var(--font-display), serif;
+  font-size: 24px;
   line-height: 1.2;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--text-soft);
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 .hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 9vw, 7.25rem);
-  line-height: 0.92;
-  letter-spacing: -0.07em;
+  font-family: var(--font-display), serif;
+  font-size: clamp(4.6rem, 10.8vw, 7.9rem);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
   color: var(--text);
 }
 
@@ -81,22 +117,25 @@ a {
 .pill-badge {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--border);
+  justify-content: center;
+  min-height: 34px;
+  border: 1px solid rgba(39, 20, 1, 0.08);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   color: var(--text-soft);
-  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-size: 12px;
   line-height: 1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .eyebrow-pill {
-  padding: 0.95rem 1.35rem;
+  padding: 0.8rem 1.2rem;
 }
 
 .pill-badge {
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 0.9rem;
   background: var(--pink-soft);
   color: var(--pink-text);
 }
@@ -104,23 +143,44 @@ a {
 .button-primary,
 .button-secondary,
 .button-outline {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 58px;
+  min-height: 52px;
   border-radius: 999px;
-  padding: 0.95rem 1.5rem;
-  border: 1px solid var(--border);
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  padding: 0.9rem 1.45rem;
+  border: 1px solid rgba(39, 20, 1, 0.1);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   transition:
-    transform 180ms ease,
-    background 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease,
-    box-shadow 180ms ease;
+    transform 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.button-primary::before,
+.button-secondary::before,
+.button-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 232, 240, 0) 0%, rgba(255, 232, 240, 0.92) 50%, rgba(255, 232, 240, 0) 100%);
+  transform: translateX(-120%);
+  transition: transform 320ms ease;
+}
+
+.button-primary > *,
+.button-secondary > *,
+.button-outline > * {
+  position: relative;
+  z-index: 1;
 }
 
 .button-primary {
@@ -128,10 +188,22 @@ a {
   color: var(--text);
 }
 
-.button-primary:hover {
+.button-primary:hover,
+.button-secondary:hover,
+.button-outline:hover {
   transform: translateY(-1px);
+}
+
+.button-primary:hover::before,
+.button-secondary:hover::before,
+.button-outline:hover::before {
+  transform: translateX(120%);
+}
+
+.button-primary:hover {
   background: var(--button-hover);
-  box-shadow: 0 14px 32px rgba(201, 83, 124, 0.12);
+  color: var(--pink-text);
+  box-shadow: 0 14px 36px rgba(201, 83, 124, 0.14);
 }
 
 .button-secondary,
@@ -142,19 +214,57 @@ a {
 
 .button-secondary:hover,
 .button-outline:hover {
-  transform: translateY(-1px);
   background: white;
-  border-color: var(--pink);
+  border-color: rgba(201, 83, 124, 0.35);
   color: var(--pink-text);
 }
 
-@media (max-width: 640px) {
-  .section-shell {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 3.5rem;
+.fade-card {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.fade-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 83, 124, 0.34);
+  box-shadow: 0 22px 60px rgba(39, 20, 1, 0.07);
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-in {
+  animation: floatIn 500ms ease both;
+}
+
+@media (max-width: 768px) {
+  .section-shell,
+  .page-shell {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
+  .section-shell {
+    padding-top: 42px;
+  }
+
+  .section-label {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 640px) {
   .button-primary,
   .button-secondary,
   .button-outline {

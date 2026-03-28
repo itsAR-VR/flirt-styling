@@ -54,7 +54,7 @@ const faqs = [
 export default function OnlineStylingPage() {
   return (
     <>
-      <SiteHeader activePath="/online-styling" />
+      <SiteHeader />
       <main className="flex-1">
         <section className="section-shell pt-14 sm:pt-18">
           <div className="rounded-[36px] border border-[var(--border)] bg-white px-6 py-10 shadow-[0_20px_70px_rgba(39,20,1,0.05)] sm:px-10 sm:py-14">
@@ -117,7 +117,7 @@ export default function OnlineStylingPage() {
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {onlinePackages.map((pkg) => (
-              <PackagePreviewCard key={pkg.name} pkg={pkg} cta="Book this package" />
+              <PackagePreviewCard key={pkg.name} pkg={pkg} />
             ))}
           </div>
         </section>
@@ -161,12 +161,7 @@ export default function OnlineStylingPage() {
           </div>
         </section>
 
-        <FinalCta
-          title="Flirt with style."
-          description="Start with a free intro call, a no-pressure conversation where a Flirt Stylist walks you through the services and helps you find the right package. Ready to commit? Book your consultation directly."
-          secondaryLabel="Book a consultation"
-          secondaryHref="/faq"
-        />
+        <FinalCta />
       </main>
       <SiteFooter />
     </>

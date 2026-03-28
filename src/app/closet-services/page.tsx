@@ -54,7 +54,7 @@ const faqs = [
 export default function ClosetServicesPage() {
   return (
     <>
-      <SiteHeader activePath="/closet-services" />
+      <SiteHeader />
       <main className="flex-1">
         <section className="section-shell pt-14 sm:pt-18">
           <div className="rounded-[36px] border border-[var(--border)] bg-white px-6 py-10 shadow-[0_20px_70px_rgba(39,20,1,0.05)] sm:px-10 sm:py-14">
@@ -115,7 +115,7 @@ export default function ClosetServicesPage() {
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {closetPackages.map((pkg) => (
-              <PackagePreviewCard key={pkg.name} pkg={pkg} cta="Book this service" />
+              <PackagePreviewCard key={pkg.name} pkg={pkg} />
             ))}
           </div>
           <div className="mt-8 rounded-[28px] border border-[#f2bfd0] bg-[linear-gradient(180deg,#ffeef4_0%,#fff8fb_100%)] px-6 py-6 sm:px-8">
@@ -194,12 +194,7 @@ export default function ClosetServicesPage() {
           </div>
         </section>
 
-        <FinalCta
-          title="Flirt with style."
-          description="Start with a free intro call, a no-pressure conversation where a Flirt Stylist walks you through the services and helps you find the right fit. Ready to commit? Book directly."
-          secondaryLabel="Book a service"
-          secondaryHref="/online-styling"
-        />
+        <FinalCta />
       </main>
       <SiteFooter />
     </>

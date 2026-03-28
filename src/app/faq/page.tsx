@@ -64,7 +64,7 @@ const sections = [
 export default function FaqPage() {
   return (
     <>
-      <SiteHeader activePath="/faq" />
+      <SiteHeader />
       <main className="flex-1">
         <section className="section-shell pt-14 sm:pt-18">
           <div className="rounded-[36px] border border-[var(--border)] bg-white px-6 py-10 shadow-[0_20px_70px_rgba(39,20,1,0.05)] sm:px-10 sm:py-14">
@@ -117,12 +117,7 @@ export default function FaqPage() {
           </div>
         </section>
 
-        <FinalCta
-          title="Flirt with style."
-          description="Start with a free intro call, a no-pressure conversation where Sydney can walk you through the services and help you figure out what fits best."
-          secondaryLabel="View our services"
-          secondaryHref="/online-styling"
-        />
+        <FinalCta />
       </main>
       <SiteFooter />
     </>

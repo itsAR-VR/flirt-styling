@@ -3,41 +3,21 @@
 :root {
   --background: #fffdfb;
   --surface: #fffdfb;
-  --surface-alt: #fdf5f1;
   --foreground: #271401;
   --text: #271401;
-  --text-soft: #57321d;
   --pink: #f5a1be;
-  --pink-soft: #ffe8f0;
   --pink-text: #c9537c;
-  --button: #f3edea;
-  --button-hover: #ffe8f0;
+  --button: #f5a1be;
+  --button-hover: #f8bdd0;
   --border: #d8d1cb;
-  --site-width: 980px;
   --font-display: "Bogart";
-  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-regular-display: "Bogart Regular";
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-body);
-}
-
-@font-face {
-  font-family: "Bogart";
-  src: url("/fonts/bogart-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bogart";
-  src: url("/fonts/bogart-medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  --font-sans: var(--font-regular-display);
 }
 
 @font-face {
@@ -56,15 +36,19 @@
   font-display: swap;
 }
 
-html {
-  scroll-behavior: smooth;
+@font-face {
+  font-family: "Bogart Regular";
+  src: url("/fonts/bogart-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
   min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body);
+  font-family: var(--font-regular-display), serif;
 }
 
 a {
@@ -79,195 +63,53 @@ img {
   background: rgba(245, 161, 190, 0.28);
 }
 
-.page-shell {
-  width: 100%;
-  max-width: calc(var(--site-width) + 90px);
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.section-shell {
-  width: 100%;
-  max-width: calc(var(--site-width) + 90px);
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 56px;
-  padding-bottom: 10px;
-}
-
-.section-label {
-  font-family: var(--font-display), serif;
-  font-size: 24px;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
-
-.hero-title {
-  font-family: var(--font-display), serif;
-  font-size: clamp(4.6rem, 10.8vw, 7.9rem);
-  line-height: 0.88;
-  letter-spacing: -0.06em;
-  color: var(--text);
-}
-
-.eyebrow-pill,
-.pill-badge {
+.wix-button-primary,
+.wix-button-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 34px;
-  border: 1px solid rgba(39, 20, 1, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--text-soft);
-  font-family: var(--font-body);
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.eyebrow-pill {
-  padding: 0.8rem 1.2rem;
-}
-
-.pill-badge {
-  padding: 0.7rem 0.9rem;
-  background: var(--pink-soft);
-  color: var(--pink-text);
-}
-
-.button-primary,
-.button-secondary,
-.button-outline {
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  border-radius: 999px;
-  padding: 0.9rem 1.45rem;
-  border: 1px solid rgba(39, 20, 1, 0.1);
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  white-space: nowrap;
   transition:
-    transform 220ms ease,
-    background-color 220ms ease,
-    border-color 220ms ease,
-    color 220ms ease,
-    box-shadow 220ms ease;
+    color 0.4s ease,
+    background-color 0.4s ease,
+    border-color 0.4s ease;
 }
 
-.button-primary::before,
-.button-secondary::before,
-.button-outline::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255, 232, 240, 0) 0%, rgba(255, 232, 240, 0.92) 50%, rgba(255, 232, 240, 0) 100%);
-  transform: translateX(-120%);
-  transition: transform 320ms ease;
-}
-
-.button-primary > *,
-.button-secondary > *,
-.button-outline > * {
-  position: relative;
-  z-index: 1;
-}
-
-.button-primary {
+.wix-button-primary {
+  min-height: 35px;
+  border-radius: 7px;
+  border: 1px solid #271401;
   background: var(--button);
-  color: var(--text);
+  padding: 0 16px;
+  font-family: var(--font-regular-display), serif;
+  font-size: 14px;
+  line-height: 1;
+  color: #000;
 }
 
-.button-primary:hover,
-.button-secondary:hover,
-.button-outline:hover {
-  transform: translateY(-1px);
-}
-
-.button-primary:hover::before,
-.button-secondary:hover::before,
-.button-outline:hover::before {
-  transform: translateX(120%);
-}
-
-.button-primary:hover {
+.wix-button-primary:hover {
   background: var(--button-hover);
   color: var(--pink-text);
-  box-shadow: 0 14px 36px rgba(201, 83, 124, 0.14);
 }
 
-.button-secondary,
-.button-outline {
+.wix-button-secondary {
+  min-height: 40px;
+  border: none;
   background: transparent;
+  padding: 0;
+  font-family: var(--font-regular-display), serif;
+  font-size: 18px;
+  line-height: 1.2;
   color: var(--text);
 }
 
-.button-secondary:hover,
-.button-outline:hover {
-  background: white;
-  border-color: rgba(201, 83, 124, 0.35);
+.wix-button-secondary:hover {
   color: var(--pink-text);
 }
 
-.fade-card {
-  transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease,
-    background-color 220ms ease;
-}
-
-.fade-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(201, 83, 124, 0.34);
-  box-shadow: 0 22px 60px rgba(39, 20, 1, 0.07);
-}
-
-@keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-float-in {
-  animation: floatIn 500ms ease both;
-}
-
-@media (max-width: 768px) {
-  .section-shell,
-  .page-shell {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .section-shell {
-    padding-top: 42px;
-  }
-
-  .section-label {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 640px) {
-  .button-primary,
-  .button-secondary,
-  .button-outline {
-    width: 100%;
+@media (max-width: 1024px) {
+  .wix-button-primary,
+  .wix-button-secondary {
+    white-space: normal;
   }
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FinalCta, PackagePreviewCard, SiteFooter, SiteHeader, closetPackages, ChatWidgetMock } from "../site";
+import { FinalCta, ServiceImageCard, SiteFooter, SiteHeader, closetPackages, ChatWidgetMock } from "../site";
 
 const steps = [
   {
@@ -116,7 +116,7 @@ export default function ClosetServicesPage() {
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {closetPackages.map((pkg) => (
-              <PackagePreviewCard key={pkg.name} pkg={pkg} />
+              <ServiceImageCard key={pkg.name} pkg={pkg} />
             ))}
           </div>
 

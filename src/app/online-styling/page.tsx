@@ -5,7 +5,7 @@ import {
   SiteFooter,
   FinalCta,
   ChatWidgetMock,
-  PackagePreviewCard,
+  ServiceImageCard,
   onlinePackages,
 } from "../site";
 
@@ -405,7 +405,7 @@ export default function OnlineStylingPage() {
             }}
           >
             {onlinePackages.map((pkg) => (
-              <PackagePreviewCard key={pkg.name} pkg={pkg} />
+              <ServiceImageCard key={pkg.name} pkg={pkg} />
             ))}
           </div>
         </div>

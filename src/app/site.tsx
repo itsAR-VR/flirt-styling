@@ -14,6 +14,7 @@ export type PackageCard = {
   featured?: boolean;
   borderHighlight?: string;
   bookingUrl?: string;
+  image?: string;
 };
 
 export const onlinePackages: PackageCard[] = [
@@ -293,6 +294,169 @@ function renderWithNumbers(text: string) {
     ) : (
       part
     )
+  );
+}
+
+/* Service images mapped to package names */
+export const serviceImages: Record<string, string> = {
+  "The Fling": "/assets/service-fling.jpg",
+  "The Hookup": "/assets/service-hookup.jpg",
+  "The Soulmate": "/assets/service-soulmate.jpg",
+  "The Breakup": "/assets/service-breakup.jpg",
+  "The Edit": "/assets/service-edit.png",
+  "The Full Reset": "/assets/service-full-reset.png",
+};
+
+/* Service card with image — used on dedicated service pages */
+export function ServiceImageCard({ pkg }: { pkg: PackageCard }) {
+  const imageSrc = serviceImages[pkg.name];
+  return (
+    <article
+      className="package-card"
+      style={{
+        background: "#F8F3EF",
+        borderRadius: 12,
+        border: pkg.borderHighlight
+          ? `2px solid ${pkg.borderHighlight}`
+          : "1px solid rgba(39,20,1,0.08)",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        transition: "background-color 0.4s ease, border-color 0.4s ease",
+      }}
+    >
+      {/* Image */}
+      {imageSrc && (
+        <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", overflow: "hidden" }}>
+          <Image
+            src={imageSrc}
+            alt={pkg.name}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </div>
+      )}
+
+      {/* Card content */}
+      <div style={{ padding: "20px 22px 22px" }}>
+        {/* Eyebrow */}
+        {pkg.eyebrow && (
+          <span
+            style={{
+              display: "inline-block",
+              alignSelf: "flex-start",
+              background: "#FFE4EB",
+              borderRadius: 12,
+              padding: "4px 14px",
+              fontFamily: "var(--font-medium-italic)",
+              fontSize: 13,
+              color: "#C9537C",
+              marginBottom: 10,
+            }}
+          >
+            {pkg.eyebrow}
+          </span>
+        )}
+
+        {/* Name */}
+        <h3
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: 30,
+            lineHeight: 1.1,
+            color: "var(--text-dark)",
+            margin: 0,
+          }}
+        >
+          {pkg.name}
+        </h3>
+
+        {/* Subtitle */}
+        <p
+          style={{
+            fontFamily: "var(--font-medium-italic)",
+            fontSize: 16,
+            lineHeight: 1.3,
+            color: "var(--text-body)",
+            margin: "6px 0 0",
+            whiteSpace: "pre-line",
+          }}
+        >
+          {pkg.subtitle}
+        </p>
+
+        {/* Price */}
+        <p
+          style={{
+            fontFamily: "var(--font-price)",
+            fontSize: 48,
+            lineHeight: 1,
+            color: "#C9537C",
+            margin: "14px 0 0",
+          }}
+        >
+          {pkg.price}
+        </p>
+
+        {/* Divider */}
+        <div style={{ height: 1, background: "#D6CFCB", margin: "16px 0 14px" }} />
+
+        {/* Bullets */}
+        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          {pkg.bullets.map((bullet) => {
+            const match = bullet.match(/^(\d+)\s(.+)$/);
+            const dashMatch = bullet.match(/^- (.+)$/);
+            return (
+              <li
+                key={bullet}
+                style={{
+                  fontFamily: "var(--font-medium)",
+                  fontSize: 16,
+                  lineHeight: 1.6,
+                  color: "var(--text-dark)",
+                }}
+              >
+                {match ? (
+                  <>
+                    <strong style={{ fontFamily: "var(--font-price)", fontSize: 18 }}>{match[1]}</strong>{" "}
+                    {match[2]}
+                  </>
+                ) : dashMatch ? (
+                  <>- {renderWithNumbers(dashMatch[1])}</>
+                ) : (
+                  renderWithNumbers(bullet)
+                )}
+              </li>
+            );
+          })}
+        </ul>
+
+        {/* Note */}
+        <p
+          style={{
+            fontFamily: "var(--font-medium-italic)",
+            fontSize: 15,
+            color: "#C9537C",
+            margin: "14px 0 0",
+          }}
+        >
+          {renderWithNumbers(pkg.note)}
+        </p>
+
+        {/* Book button */}
+        <div style={{ marginTop: 18 }}>
+          <a
+            href="https://calendar.app.google/H3H8wtu1w3xfAZVT9"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-book-package"
+          >
+            Book this package
+          </a>
+        </div>
+      </div>
+    </article>
   );
 }
 

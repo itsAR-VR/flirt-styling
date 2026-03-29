@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { FinalCta, ServiceImageCard, SiteFooter, SiteHeader, closetPackages, ChatWidgetMock } from "../site";
 
+/* ─── Data ─── */
+
 const steps = [
   {
     title: "Book your service & video consultation",
-    body: "Once you book, you’ll have a video consultation with a Flirt Stylist — similar to the styling process. They’ll ask about your goals, your closet, and what you’re hoping to walk away with.",
+    body: "Once you book, you'll have a video consultation with a Flirt Stylist — similar to the styling process. They'll ask about your goals, your closet, and what you're hoping to walk away with.",
   },
   {
     title: "Send photos and videos of your closet",
@@ -16,34 +18,34 @@ const steps = [
   },
   {
     title: "Walk away with a closet that works",
-    body: "Whether it’s a cleanout, an organization, or both — you’ll end the session with a closet that feels intentional, manageable, and fully yours. Sessions typically run 1 to 2 hours depending on closet size.",
+    body: "Whether it's a cleanout, an organization, or both — you'll end the session with a closet that feels intentional, manageable, and fully yours. Sessions typically run 1 to 2 hours depending on closet size.",
   },
   {
     title: "Donations handled for you",
-    body: "Anything you decide to let go of gets donated to The Gathering Place (TGP Denver) — a local women’s resource center — within a few days. Flirt handles the drop-off so you don’t have to think about it.",
+    body: "Anything you decide to let go of gets donated to The Gathering Place (TGP Denver) — a local women's resource center — within a few days. Flirt handles the drop-off so you don't have to think about it.",
   },
 ];
 
-const faqs = [
+const faqs: [string, string][] = [
   [
     "How long does a session take?",
     "Most sessions run 1 to 2 hours depending on your closet size and the service you choose. A Flirt Stylist will discuss timing with you during your video consultation.",
   ],
   [
     "Do I need to prepare anything before a Flirt Stylist arrives?",
-    "Just be ready to make some decisions! During your video consultation, a Flirt Stylist will let you know if there’s anything specific to prepare. In most cases, having your closet accessible and ready to review is all you need.",
+    "Just be ready to make some decisions! During your video consultation, a Flirt Stylist will let you know if there's anything specific to prepare. In most cases, having your closet accessible and ready to review is all you need.",
   ],
   [
     "What happens to the clothes I get rid of?",
-    "All donations go to The Gathering Place (TGP Denver), a local women’s resource center. Flirt handles the entire donation process — we pick up, deliver, and handle all the logistics so you don’t have to think about it.",
+    "All donations go to The Gathering Place (TGP Denver), a local women's resource center. Flirt handles the entire donation process — we pick up, deliver, and handle all the logistics so you don't have to think about it.",
   ],
   [
     "Do you bring any supplies or equipment?",
-    "A Flirt Stylist brings everything needed for the session — hangers, bags, and any organizational supplies. You don’t need to provide anything. Just have some space to work with.",
+    "A Flirt Stylist brings everything needed for the session — hangers, bags, and any organizational supplies. You don't need to provide anything. Just have some space to work with.",
   ],
   [
     "What areas do you service?",
-    "Flirt Closet Services are available in the Denver metro area. If you’re unsure whether your location is covered, reach out to hello.shopflirt@gmail.com or book a free intro call to confirm.",
+    "Flirt Closet Services are available in the Denver metro area. If you're unsure whether your location is covered, reach out to hello.shopflirt@gmail.com or book a free intro call to confirm.",
   ],
   [
     "Can I book just one service or do I need both?",
@@ -51,49 +53,193 @@ const faqs = [
   ],
 ];
 
+/* ─── Page ─── */
+
 export default function ClosetServicesPage() {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="section-shell pt-14 sm:pt-18">
-          <div className="rounded-[36px] border border-[var(--border)] bg-white px-6 py-10 shadow-[0_20px_70px_rgba(39,20,1,0.05)] sm:px-10 sm:py-14">
-            <p className="section-label">Closet Cleanout &amp; Organization Services</p>
-            <h1 className="mt-4 max-w-[900px] font-[family:var(--font-display)] text-[54px] leading-[0.94] tracking-[-0.06em] text-[var(--text)] sm:text-[76px]">
-              Your best outfits are already in there — let’s find them.
+      <main style={{ background: "var(--bg)" }}>
+        {/* ── Hero ── */}
+        <section className="site-container" style={{ paddingTop: 56, paddingBottom: 48 }}>
+          <div
+            style={{
+              borderRadius: 28,
+              border: "1px solid rgba(39,20,1,0.06)",
+              background: "#fff",
+              padding: "48px 44px",
+              boxShadow: "0 20px 70px rgba(39,20,1,0.05)",
+            }}
+          >
+            <div
+              style={{
+                display: "inline-block",
+                background: "#FFE4EB",
+                borderRadius: 20,
+                padding: "6px 22px",
+                marginBottom: 20,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-medium-italic)",
+                  fontSize: 15,
+                  color: "#C9537C",
+                }}
+              >
+                Closet Cleanout &amp; Organization Services
+              </span>
+            </div>
+
+            <h1
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 46,
+                lineHeight: 0.96,
+                letterSpacing: "-0.03em",
+                color: "var(--text-dark)",
+                maxWidth: 700,
+                margin: "0 0 20px",
+              }}
+            >
+              Your best outfits are already in there — let&apos;s find them.
             </h1>
-            <p className="mt-6 max-w-[880px] text-[19px] leading-8 text-[var(--text-soft)]">
-              Sometimes the problem isn’t what’s in your cart — it’s what’s already in your closet. Flirt’s in-person closet services help you take back control of your wardrobe, starting at home. Judgment-free, efficient, and done with you — not to you.
+
+            <p
+              style={{
+                fontFamily: "var(--font-medium)",
+                fontSize: 17,
+                lineHeight: 1.7,
+                color: "var(--text-body)",
+                maxWidth: 680,
+                margin: "0 0 28px",
+              }}
+            >
+              Sometimes the problem isn&apos;t what&apos;s in your cart — it&apos;s what&apos;s already in your closet.
+              Flirt&apos;s in-person closet services help you take back control of your wardrobe, starting at home.
+              Judgment-free, efficient, and done with you — not to you.
             </p>
-            <div className="mt-8 rounded-[28px] border border-[#f2bfd0] bg-[linear-gradient(180deg,#ffeef4_0%,#fff8fb_100%)] px-6 py-6 sm:px-8">
-              <p className="text-[17px] leading-8 text-[var(--text-soft)]">
-                <strong className="text-[var(--text)]">Not sure which service is right for you?</strong> Book a free intro call with a Flirt Stylist and she’ll help you figure it out — no commitment required.
+
+            {/* CTA banner inside hero */}
+            <div
+              style={{
+                borderRadius: 20,
+                border: "1px solid #f2bfd0",
+                background: "linear-gradient(180deg, #ffeef4 0%, #fff8fb 100%)",
+                padding: "20px 28px",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-medium)",
+                  fontSize: 16,
+                  lineHeight: 1.6,
+                  color: "var(--text-body)",
+                  margin: 0,
+                }}
+              >
+                <strong style={{ fontFamily: "var(--font-semibold)", color: "var(--text-dark)" }}>
+                  Not sure which service is right for you?
+                </strong>{" "}
+                Book a free intro call with a Flirt Stylist and she&apos;ll help you figure it out — no commitment required.
               </p>
             </div>
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="section-shell">
-          <div className="grid gap-6 lg:grid-cols-5">
-            <div className="lg:col-span-2">
-              <p className="section-label">How it works</p>
-              <h2 className="mt-4 font-[family:var(--font-display)] text-[46px] leading-[0.96] tracking-[-0.05em] text-[var(--text)] sm:text-[64px]">
-                Here’s how it works.
+        {/* ── How It Works ── */}
+        <section className="site-container" style={{ paddingBottom: 56 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 3fr", gap: 32, alignItems: "start" }}>
+            {/* Left heading */}
+            <div>
+              <div
+                style={{
+                  display: "inline-block",
+                  background: "#FFE4EB",
+                  borderRadius: 20,
+                  padding: "6px 22px",
+                  marginBottom: 16,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-medium-italic)",
+                    fontSize: 14,
+                    color: "#C9537C",
+                  }}
+                >
+                  How it works
+                </span>
+              </div>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 42,
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
+                  color: "var(--text-dark)",
+                  margin: 0,
+                }}
+              >
+                Here&apos;s how it works.
               </h2>
             </div>
-            <div className="space-y-5 lg:col-span-3">
-              {steps.map((step, index) => (
-                <div key={step.title} className="rounded-[28px] border border-[var(--border)] bg-white px-6 py-6 sm:px-8">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--pink-soft)] font-semibold text-[var(--pink-text)]">
-                      {index + 1}
-                    </span>
-                    <div>
-                      <h3 className="font-[family:var(--font-display)] text-[30px] leading-none text-[var(--text)]">{step.title}</h3>
-                      <p className="mt-3 text-[17px] leading-8 text-[var(--text-soft)]">{step.body}</p>
-                    </div>
+
+            {/* Right: step cards */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              {steps.map((step, i) => (
+                <div
+                  key={step.title}
+                  style={{
+                    borderRadius: 20,
+                    border: "1px solid rgba(39,20,1,0.06)",
+                    background: "#fff",
+                    padding: "24px 28px",
+                    display: "flex",
+                    gap: 18,
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <span
+                    style={{
+                      flexShrink: 0,
+                      width: 38,
+                      height: 38,
+                      borderRadius: "50%",
+                      background: "#FFE4EB",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontFamily: "var(--font-price)",
+                      fontSize: 16,
+                      color: "#C9537C",
+                    }}
+                  >
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: 24,
+                        lineHeight: 1.1,
+                        color: "var(--text-dark)",
+                        margin: "0 0 8px",
+                      }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "var(--font-medium)",
+                        fontSize: 15,
+                        lineHeight: 1.65,
+                        color: "var(--text-body)",
+                        margin: 0,
+                      }}
+                    >
+                      {step.body}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -101,98 +247,311 @@ export default function ClosetServicesPage() {
           </div>
         </section>
 
-        {/* Choose Your Service Section */}
-        <section className="section-shell">
-          <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="section-label">Services</p>
-              <h2 className="mt-4 font-[family:var(--font-display)] text-[46px] leading-[0.96] tracking-[-0.05em] text-[var(--text)] sm:text-[64px]">
-                Choose your service.
-              </h2>
-              <p className="mt-4 max-w-[840px] text-[18px] leading-8 text-[var(--text-soft)]">
-                All services include a video consultation and an in-person session with a Flirt Stylist at your home — honest, judgment-free, and done right. Your space is left clean and organized, and any donations are handled for you.
-              </p>
+        {/* ── Choose Your Service ── */}
+        <section className="site-container" style={{ paddingBottom: 56 }}>
+          <div style={{ marginBottom: 28 }}>
+            <div
+              style={{
+                display: "inline-block",
+                background: "#FFE4EB",
+                borderRadius: 20,
+                padding: "6px 22px",
+                marginBottom: 16,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-medium-italic)",
+                  fontSize: 14,
+                  color: "#C9537C",
+                }}
+              >
+                Services
+              </span>
             </div>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 42,
+                lineHeight: 0.98,
+                letterSpacing: "-0.03em",
+                color: "var(--text-dark)",
+                margin: "0 0 14px",
+              }}
+            >
+              Choose your service.
+            </h2>
+            <p
+              style={{
+                fontFamily: "var(--font-medium)",
+                fontSize: 16,
+                lineHeight: 1.65,
+                color: "var(--text-body)",
+                maxWidth: 700,
+                margin: 0,
+              }}
+            >
+              All services include a video consultation and an in-person session with a Flirt Stylist at your home —
+              honest, judgment-free, and done right. Your space is left clean and organized, and any donations are handled for you.
+            </p>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {closetPackages.map((pkg) => (
               <ServiceImageCard key={pkg.name} pkg={pkg} />
             ))}
           </div>
 
-          {/* Discount Banner */}
-          <div className="mt-8 rounded-[28px] border border-[#f2bfd0] bg-[linear-gradient(180deg,#ffeef4_0%,#fff8fb_100%)] px-6 py-6 sm:px-8">
-            <p className="text-[17px] leading-8 text-[var(--text-soft)]">
-              <strong className="text-[var(--text)]">Book any closet service and get 20% off an online styling package.</strong> Stack your services and make the most of your Flirt experience.
+          {/* Discount banner */}
+          <div
+            style={{
+              marginTop: 28,
+              borderRadius: 20,
+              border: "1px solid #f2bfd0",
+              background: "linear-gradient(180deg, #ffeef4 0%, #fff8fb 100%)",
+              padding: "20px 28px",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-medium)",
+                fontSize: 16,
+                lineHeight: 1.6,
+                color: "var(--text-body)",
+                margin: 0,
+              }}
+            >
+              <strong style={{ fontFamily: "var(--font-semibold)", color: "var(--text-dark)" }}>
+                Book any closet service and get{" "}
+                <span style={{ fontFamily: "var(--font-price)" }}>20%</span> off an online styling package.
+              </strong>{" "}
+              Stack your services and make the most of your Flirt experience.
             </p>
           </div>
         </section>
 
-        {/* TGP Denver Partnership Section */}
-        <section className="section-shell">
-          <div className="rounded-[28px] border border-[var(--border)] bg-white px-6 py-10 sm:px-10 sm:py-14" style={{ borderLeft: "6px solid var(--pink)" }}>
-            <p className="section-label">Giving back</p>
-            <h2 className="mt-4 font-[family:var(--font-display)] text-[46px] leading-[0.96] tracking-[-0.05em] text-[var(--text)] sm:text-[64px]">
+        {/* ── Giving Back ── */}
+        <section className="site-container" style={{ paddingBottom: 56 }}>
+          <div
+            style={{
+              borderRadius: 28,
+              border: "1px solid rgba(39,20,1,0.06)",
+              borderLeft: "6px solid #C9537C",
+              background: "#fff",
+              padding: "44px 44px",
+            }}
+          >
+            <div
+              style={{
+                display: "inline-block",
+                background: "#FFE4EB",
+                borderRadius: 20,
+                padding: "6px 22px",
+                marginBottom: 16,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-medium-italic)",
+                  fontSize: 14,
+                  color: "#C9537C",
+                }}
+              >
+                Giving back
+              </span>
+            </div>
+
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 36,
+                lineHeight: 1.0,
+                letterSpacing: "-0.03em",
+                color: "var(--text-dark)",
+                maxWidth: 600,
+                margin: "0 0 20px",
+              }}
+            >
               Your unwanted clothes go somewhere that matters.
             </h2>
 
-            <div className="mt-8 space-y-6 max-w-[840px]">
-              <p className="text-[18px] leading-8 text-[var(--text-soft)]">
-                The Gathering Place (TGP Denver) is a non-profit women’s resource center dedicated to providing support, resources, and community to women in need across the Denver metro area. From emergency financial assistance to job training, mental health services, and housing support, TGP Denver helps women navigate life’s challenges and build a path toward stability and independence.
-              </p>
+            <p
+              style={{
+                fontFamily: "var(--font-medium)",
+                fontSize: 16,
+                lineHeight: 1.7,
+                color: "var(--text-body)",
+                maxWidth: 700,
+                margin: "0 0 16px",
+              }}
+            >
+              The Gathering Place (TGP Denver) is a non-profit women&apos;s resource center dedicated to providing
+              support, resources, and community to women in need across the Denver metro area. From emergency financial
+              assistance to job training, mental health services, and housing support, TGP Denver helps women navigate
+              life&apos;s challenges and build a path toward stability and independence.
+            </p>
 
-              <p className="text-[18px] leading-8 text-[var(--text-soft)]">
-                Every piece of clothing donated through Flirt Closet Services goes directly to TGP Denver’s clothing closet, where it’s available to women who need it most. Your donations help women in our community feel confident and supported as they work toward their goals. It’s a meaningful way to give back while clearing your own closet.
-              </p>
+            <p
+              style={{
+                fontFamily: "var(--font-medium)",
+                fontSize: 16,
+                lineHeight: 1.7,
+                color: "var(--text-body)",
+                maxWidth: 700,
+                margin: "0 0 24px",
+              }}
+            >
+              Every piece of clothing donated through Flirt Closet Services goes directly to TGP Denver&apos;s clothing
+              closet, where it&apos;s available to women who need it most. Your donations help women in our community feel
+              confident and supported as they work toward their goals.
+            </p>
 
-              <a
-                href="https://www.tgpdenver.org"
-                target="_blank"
-                rel="noreferrer"
-                className="button-outline"
-              >
-                Learn more about TGP Denver →
-              </a>
-            </div>
+            <a
+              href="https://www.tgpdenver.org"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-ghost"
+            >
+              Learn more about TGP Denver →
+            </a>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="section-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_minmax(0,1fr)] lg:items-start">
+        {/* ── FAQ ── */}
+        <section className="site-container" style={{ paddingBottom: 56 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 3fr", gap: 32, alignItems: "start" }}>
+            {/* Left heading */}
             <div>
-              <p className="section-label">FAQ</p>
-              <h2 className="mt-4 font-[family:var(--font-display)] text-[46px] leading-[0.96] tracking-[-0.05em] text-[var(--text)] sm:text-[62px]">
+              <div
+                style={{
+                  display: "inline-block",
+                  background: "#FFE4EB",
+                  borderRadius: 20,
+                  padding: "6px 22px",
+                  marginBottom: 16,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-medium-italic)",
+                    fontSize: 14,
+                    color: "#C9537C",
+                  }}
+                >
+                  FAQ
+                </span>
+              </div>
+              <h2
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 42,
+                  lineHeight: 0.98,
+                  letterSpacing: "-0.03em",
+                  color: "var(--text-dark)",
+                  margin: 0,
+                }}
+              >
                 Common questions.
               </h2>
             </div>
-            <div className="space-y-4">
+
+            {/* Right: FAQ cards */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {faqs.map(([question, answer]) => (
-                <details key={question} className="rounded-[24px] border border-[var(--border)] bg-white px-6 py-5 open:border-[var(--pink)] open:bg-[var(--surface-alt)]">
-                  <summary className="cursor-pointer list-none font-[family:var(--font-display)] text-[27px] leading-[1.05] text-[var(--text)]">
+                <details
+                  key={question}
+                  style={{
+                    borderRadius: 20,
+                    border: "1px solid rgba(39,20,1,0.06)",
+                    background: "#fff",
+                    padding: "18px 24px",
+                    cursor: "pointer",
+                  }}
+                >
+                  <summary
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: 22,
+                      lineHeight: 1.15,
+                      color: "var(--text-dark)",
+                      listStyle: "none",
+                    }}
+                  >
                     {question}
                   </summary>
-                  <p className="mt-4 text-[16px] leading-7 text-[var(--text-soft)]">{answer}</p>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-medium)",
+                      fontSize: 15,
+                      lineHeight: 1.65,
+                      color: "var(--text-body)",
+                      marginTop: 14,
+                      marginBottom: 0,
+                    }}
+                  >
+                    {answer}
+                  </p>
                 </details>
               ))}
-              <Link href="/faq" className="button-outline mt-2">
+              <Link
+                href="/faq"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  fontFamily: "var(--font-semibold)",
+                  fontSize: 16,
+                  color: "#C9537C",
+                  marginTop: 8,
+                }}
+              >
                 View the full FAQ →
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Also From Flirt Section */}
-        <section className="section-shell">
-          <div className="grid gap-6 md:grid-cols-3">
+        {/* ── Also From Flirt ── */}
+        <section className="site-container" style={{ paddingBottom: 56 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
-              ["Online Styling", "Personal styling guides delivered to you", "/online-styling"],
-              ["The story behind Flirt", "Meet Sydney", "/about"],
-              ["Full FAQ", "Read FAQs", "/faq"],
-            ].map(([title, body, href]) => (
-              <Link key={title} href={href} className="rounded-[28px] border border-[var(--border)] bg-white px-6 py-7 transition hover:-translate-y-1 hover:border-[var(--pink)]">
-                <p className="font-[family:var(--font-display)] text-[32px] leading-none text-[var(--text)]">{title}</p>
-                <p className="mt-3 text-[17px] leading-7 text-[var(--text-soft)]">{body} →</p>
+              { title: "Online Styling", body: "Personal styling guides delivered to you", href: "/online-styling" },
+              { title: "The story behind Flirt", body: "Meet Sydney", href: "/about" },
+              { title: "Full FAQ", body: "Read FAQs", href: "/faq" },
+            ].map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                style={{
+                  borderRadius: 20,
+                  border: "1px solid rgba(39,20,1,0.06)",
+                  background: "#fff",
+                  padding: "28px 24px",
+                  transition: "transform 0.2s, border-color 0.2s",
+                  display: "block",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: 26,
+                    lineHeight: 1.1,
+                    color: "var(--text-dark)",
+                    margin: "0 0 10px",
+                  }}
+                >
+                  {item.title}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-medium)",
+                    fontSize: 15,
+                    lineHeight: 1.5,
+                    color: "var(--text-body)",
+                    margin: 0,
+                  }}
+                >
+                  {item.body} →
+                </p>
               </Link>
             ))}
           </div>

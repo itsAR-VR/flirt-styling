@@ -1,33 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffdfb;
-  --surface: #fffdfb;
-  --foreground: #271401;
-  --text: #57321d;
-  --text-dark: #33190a;
-  --pink: #f5a1be;
-  --pink-text: #c9537c;
-  --price-pink: #c75c83;
-  --button: #f5a1be;
-  --button-hover: #ffe8f0;
-  --button-text-hover: #c9537c;
-  --border: #d8d1cb;
-  --font-display: "Bogart Bold Real";
-  --font-semibold: "Bogart Semibold Real";
-  --font-medium: "Bogart Medium Real";
-  --font-medium-italic: "Bogart Medium Italic Real";
-  --font-price: "Calistoga Real";
+  /* Brand colors from branding guide */
+  --bg: #FFFDFB;
+  --text-primary: #271401;
+  --text-body: #57321D;
+  --text-dark: #33190A;
+  --pink-text: #C9537C;
+  --pink-cta: #F5A1BE;
+  --pink-cta-dark: #C9537C;
+  --pink-hover-bg: #FFE8F0;
+  --pink-chip-bg: #FFE4EB;
+  --btn-offwhite: #F3EDEA;
+  --btn-border: #D6CFCB;
+  --card-border: #FBBFD4;
+  --header-pink: #F5A1BE;
+
+  /* Fonts */
+  --font-display: "Bogart Bold", serif;
+  --font-semibold: "Bogart Semibold", serif;
+  --font-medium: "Bogart Medium", serif;
+  --font-medium-italic: "Bogart Medium Italic", serif;
+  --font-price: "Calistoga", serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-medium);
 }
 
+/* Font faces */
 @font-face {
-  font-family: "Bogart Bold Real";
+  font-family: "Bogart Bold";
   src: url("/fonts/bogart-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
@@ -35,15 +40,15 @@
 }
 
 @font-face {
-  font-family: "Bogart Semibold Real";
-  src: url("/fonts/bogart-regular.woff2") format("woff2");
+  font-family: "Bogart Semibold";
+  src: url("/fonts/bogart-semibold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Bogart Medium Real";
+  font-family: "Bogart Medium";
   src: url("/fonts/bogart-medium-real.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
@@ -51,7 +56,7 @@
 }
 
 @font-face {
-  font-family: "Bogart Medium Italic Real";
+  font-family: "Bogart Medium Italic";
   src: url("/fonts/bogart-medium-italic-real.woff2") format("woff2");
   font-weight: 500;
   font-style: italic;
@@ -59,81 +64,153 @@
 }
 
 @font-face {
-  font-family: "Calistoga Real";
+  font-family: "Bogart Regular";
+  src: url("/fonts/bogart-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calistoga";
   src: url("/fonts/calistoga-real.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-body {
-  min-height: 100vh;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-medium), serif;
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-body);
+  font-family: var(--font-medium);
+  margin: 0;
+}
+
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 img {
   display: block;
+  max-width: 100%;
 }
 
 ::selection {
   background: rgba(245, 161, 190, 0.28);
 }
 
-.wix-button-primary,
-.wix-button-secondary {
+/* Button styles matching Wix exactly */
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  transition:
-    color 0.4s ease,
-    background-color 0.4s ease,
-    border-color 0.4s ease;
-}
-
-.wix-button-primary {
-  min-height: 35px;
+  height: 45px;
   border-radius: 7px;
-  border: 1px solid #c75c83;
-  background: var(--button);
-  padding: 0 16px;
-  font-family: var(--font-display), serif;
-  font-size: 17px;
-  line-height: 1;
-  color: #fffdfb;
-}
-
-.wix-button-primary:hover {
-  background: var(--button-hover);
-  color: var(--button-text-hover);
-}
-
-.wix-button-secondary {
-  min-height: 40px;
   border: none;
-  background: transparent;
-  padding: 0;
-  font-family: var(--font-medium), serif;
-  font-size: 18px;
-  line-height: 1.2;
-  color: var(--text);
+  background: var(--pink-cta);
+  padding: 0 28px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.wix-button-secondary:hover {
+.btn-primary:hover {
+  background: var(--pink-hover-bg);
   color: var(--pink-text);
 }
 
-@media (max-width: 1024px) {
-  .wix-button-primary,
-  .wix-button-secondary {
-    white-space: normal;
+.btn-book-package {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 220px;
+  border-radius: 7px;
+  border: none;
+  background: var(--pink-cta-dark);
+  padding: 0 20px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.btn-book-package:hover {
+  background: var(--pink-hover-bg);
+  color: var(--pink-text);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid var(--btn-border);
+  background: transparent;
+  padding: 0 24px;
+  font-family: var(--font-medium);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--text-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--pink-hover-bg);
+  color: var(--pink-text);
+  border-color: var(--pink-cta);
+}
+
+/* Link with arrow */
+.link-arrow {
+  font-family: var(--font-semibold);
+  font-size: 17px;
+  color: var(--text-body);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.4s ease;
+}
+
+.link-arrow:hover {
+  color: var(--pink-text);
+}
+
+/* Responsive container */
+.site-container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 77px;
+    padding-right: 77px;
   }
 }

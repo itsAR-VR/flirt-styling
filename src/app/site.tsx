@@ -1,14 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type PackageCard = {
+/* ─── Data ─── */
+
+export type PackageCard = {
   name: string;
   price: string;
   eyebrow?: string;
   subtitle: string;
   bullets: string[];
   note: string;
+  noteColor?: string;
   featured?: boolean;
+  bookingUrl?: string;
 };
 
 export const onlinePackages: PackageCard[] = [
@@ -44,115 +48,364 @@ export const closetPackages: PackageCard[] = [
     name: "The Breakup",
     price: "$229",
     eyebrow: "cleanout",
-    subtitle: "Lighter closet, clearer mind",
-    bullets: ["- In-person, at your home", "- Piece by piece review", "- Keep, donate, or let go", "- Donations handled"],
+    subtitle: "Lighter closet,\nClearer mind",
+    bullets: [
+      "- In-person, at your home",
+      "- Piece by piece review",
+      "- Keep, donate, or let go",
+      "- Donations handled",
+    ],
     note: "Out with the old...",
   },
   {
     name: "The Edit",
     price: "$229",
     eyebrow: "organization",
-    subtitle: "Order, ease, and a system that sticks.",
-    bullets: ["- In-person, at your home", "- No cleanout needed", "- Closet fully organized", "- Made to last"],
+    subtitle: "Order, ease, and a\nsystem that sticks.",
+    bullets: [
+      "- In-person, at your home",
+      "- No cleanout needed",
+      "- Closet fully organized",
+      "- Made to last",
+    ],
     note: "A place for everything",
   },
   {
     name: "The Full Reset",
     price: "$399",
     eyebrow: "best value",
-    subtitle: "The full transformation",
-    bullets: ["- In-person, at your home", "- Cleanout + organization", "- Donations handled", "- Bundle Deal: Save $59"],
+    subtitle: "Both services,\nOne visit",
+    bullets: [
+      "- In-person, at your home",
+      "- Cleanout + organization",
+      "- Two sessions in one",
+      "- Bundle Deal: Save $59",
+    ],
     note: "Get 20% off styling!",
     featured: true,
   },
 ];
 
-export function SiteHeader() {
+/* ─── Shared Components ─── */
+
+export function TopGradientBar() {
   return (
-    <header className="pointer-events-none absolute left-0 top-0 z-30 w-full bg-transparent">
-      <div className="mx-auto flex w-full max-w-[980px] items-start justify-between px-[77px] pt-[32px]">
-        <Link href="/" className="pointer-events-auto shrink-0">
-          <Image src="/assets/logo-full.png" alt="Flirt Styling" width={310} height={90} className="h-auto w-[155px]" priority />
-        </Link>
-        <div className="pointer-events-auto flex items-center gap-[24px] pt-[6px]">
-          <nav className="hidden items-center gap-[26px] lg:flex">
-            <Link href="/" className="font-[family:var(--font-semibold)] text-[19px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
+    <div
+      style={{
+        height: 5,
+        background:
+          "linear-gradient(90deg, #E8849F 0%, #F5A1BE 30%, #F5A1BE 70%, #E8849F 100%)",
+      }}
+    />
+  );
+}
+
+export function SiteHeader({ activePage = "home" }: { activePage?: string }) {
+  return (
+    <>
+      <TopGradientBar />
+      <header
+        style={{
+          background: "#F5A1BE",
+          padding: "18px 0 22px",
+        }}
+      >
+        <div className="site-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ display: "block", flexShrink: 0 }}>
+            <Image
+              src="/assets/logo-full.png"
+              alt="Flirt Styling"
+              width={310}
+              height={90}
+              style={{ height: "auto", width: 145 }}
+              priority
+            />
+          </Link>
+          <nav style={{ display: "flex", alignItems: "center", gap: 36 }}>
+            <Link
+              href="/"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 19,
+                color: "#3B2314",
+                letterSpacing: "0.5px",
+              }}
+            >
               HOME
             </Link>
-            <Link href="/about" className="font-[family:var(--font-semibold)] text-[19px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
+            <Link
+              href="/about"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 19,
+                color: "#3B2314",
+                letterSpacing: "0.5px",
+              }}
+            >
               ABOUT US
             </Link>
-            <Link href="/about" className="font-[family:var(--font-semibold)] text-[19px] leading-[1.2] text-[var(--text)] transition-colors duration-[400ms] hover:text-[var(--pink-text)]">
-              About Us
+            <Link
+              href="/"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: 19,
+                color: "#3B2314",
+                letterSpacing: "0.5px",
+              }}
+            >
+              HOME
             </Link>
           </nav>
-          <a href="https://calendar.app.google/H3H8wtu1w3xfAZVT9" target="_blank" rel="noreferrer" className="wix-button-primary hidden sm:inline-flex">
-            <span className="mr-[8px] inline-block text-[11px]">✦</span>
-            Book Your Free Intro Call
-          </a>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 
 export function FinalCta() {
   return (
-    <section className="mx-auto mt-[36px] w-full max-w-[980px] px-[77px] pb-[10px]" id="booking-cta">
-      <div className="py-[6px] text-left">
-        <p className="font-[family:var(--font-display)] text-[30px] leading-[1.2] text-[var(--text-dark)]">Not sure where to start?</p>
-        <p className="mt-[10px] max-w-[780px] font-[family:var(--font-medium)] text-[18px] leading-[22.8px] text-[var(--text)]">
-          Book a free intro call with a Flirt Stylist. She&apos;ll walk you through the services, answer your questions, and help you figure out what&apos;s right for you.
-        </p>
-        <div className="mt-[14px] flex items-center gap-[20px]">
-          <a href="https://calendar.app.google/H3H8wtu1w3xfAZVT9" target="_blank" rel="noreferrer" className="wix-button-primary">
-            <span className="mr-[8px] inline-block text-[11px]">✦</span>
-            Book Your Free Intro Call
-          </a>
-        </div>
+    <section style={{ textAlign: "center", padding: "80px 20px 60px" }}>
+      {/* Chip */}
+      <div
+        style={{
+          display: "inline-block",
+          background: "#FFE4EB",
+          borderRadius: 20,
+          padding: "8px 28px",
+          marginBottom: 20,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "var(--font-medium-italic)",
+            fontSize: 17,
+            color: "#C9537C",
+          }}
+        >
+          It&apos;s free, No commitment
+        </span>
       </div>
+
+      <h2
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: 48,
+          lineHeight: 1.15,
+          color: "#C9537C",
+          maxWidth: 700,
+          margin: "0 auto 18px",
+        }}
+      >
+        Not sure where to start?
+      </h2>
+
+      <p
+        style={{
+          fontFamily: "var(--font-semibold)",
+          fontSize: 17,
+          lineHeight: 1.4,
+          color: "var(--text-body)",
+          marginBottom: 4,
+        }}
+      >
+        Book a free intro call with a Flirt Stylist!
+      </p>
+      <p
+        style={{
+          fontFamily: "var(--font-medium)",
+          fontSize: 17,
+          lineHeight: 1.4,
+          color: "var(--text-body)",
+          marginBottom: 24,
+        }}
+      >
+        We&apos;ll walk you through the services, answer your questions, and help you figure out what&apos;s right for you.
+      </p>
+
+      <a
+        href="https://calendar.app.google/H3H8wtu1w3xfAZVT9"
+        target="_blank"
+        rel="noreferrer"
+        className="btn-primary"
+        style={{ fontSize: 17, height: 48, padding: "0 32px" }}
+      >
+        Book Your Free Intro Call! &nbsp;
+        <span style={{ fontSize: 18 }}>📞</span>
+      </a>
+
+      <p
+        style={{
+          fontFamily: "var(--font-medium)",
+          fontSize: 14,
+          color: "var(--text-body)",
+          marginTop: 20,
+        }}
+      >
+        hello.shopflirt@gmail.com &middot; Denver, CO &middot; Flirt with style.
+      </p>
     </section>
   );
 }
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto w-full max-w-[980px] px-[77px] pb-[18px] pt-[10px] text-center">
-      <div className="flex items-center justify-center gap-[14px] pb-[10px]">
-        <a href="https://www.instagram.com/flirtstyling/" target="_blank" rel="noreferrer">
-          <Image src="/assets/instagram.png" alt="Instagram" width={35} height={35} className="h-[35px] w-[35px]" />
+    <footer
+      style={{
+        background: "#3B321D",
+        padding: "40px 20px 30px",
+        textAlign: "center",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "center", gap: 18, marginBottom: 18 }}>
+        <a href="https://www.instagram.com/flirtstyling/" target="_blank" rel="noreferrer" style={{ opacity: 0.9, transition: "opacity 0.3s" }}>
+          <Image src="/assets/instagram.png" alt="Instagram" width={28} height={28} style={{ filter: "brightness(10)", width: 28, height: 28 }} />
         </a>
-        <a href="https://www.facebook.com/p/FLIRT-Styling-Shopping-Services-61579022199301/" target="_blank" rel="noreferrer">
-          <Image src="/assets/facebook.png" alt="Facebook" width={35} height={35} className="h-[35px] w-[35px]" />
+        <a href="https://www.facebook.com/p/FLIRT-Styling-Shopping-Services-61579022199301/" target="_blank" rel="noreferrer" style={{ opacity: 0.9, transition: "opacity 0.3s" }}>
+          <Image src="/assets/facebook.png" alt="Facebook" width={28} height={28} style={{ filter: "brightness(10)", width: 28, height: 28 }} />
         </a>
-        <a href="https://www.linkedin.com/company/flirt-styling/" target="_blank" rel="noreferrer">
-          <Image src="/assets/linkedin.png" alt="LinkedIn" width={35} height={35} className="h-[35px] w-[35px]" />
+        <a href="https://www.linkedin.com/company/flirt-styling/" target="_blank" rel="noreferrer" style={{ opacity: 0.9, transition: "opacity 0.3s" }}>
+          <Image src="/assets/linkedin.png" alt="LinkedIn" width={28} height={28} style={{ filter: "brightness(10)", width: 28, height: 28 }} />
         </a>
       </div>
-      <p className="font-[family:var(--font-price)] text-[15px] leading-[1.2] text-[var(--text)]">© 2025 FLIRT Styling. All rights reserved.</p>
+      <p
+        style={{
+          fontFamily: "var(--font-price)",
+          fontSize: 14,
+          color: "#D4CFC8",
+          margin: 0,
+        }}
+      >
+        &copy; 2025 FLIRT Styling. All rights reserved.
+      </p>
     </footer>
   );
 }
 
 export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
   return (
-    <article className="rounded-[10px] border border-[rgba(39,20,1,0.14)] bg-white px-[16px] py-[16px] shadow-none">
-      <div className="flex items-start justify-between gap-[10px]">
-        <div>
-          <h3 className="font-[family:var(--font-display)] text-[28px] leading-[1.08] text-[var(--text-dark)]">{pkg.name}</h3>
-          <p className="mt-[6px] font-[family:var(--font-price)] text-[40px] leading-[1.05] text-[var(--price-pink)]">{pkg.price}</p>
-        </div>
-        {pkg.eyebrow ? <span className="font-[family:var(--font-semibold)] text-[12px] leading-[1.2] text-[var(--text)]">{pkg.eyebrow}</span> : null}
-      </div>
-      <p className="mt-[10px] font-[family:var(--font-medium)] text-[18px] leading-[1.2] text-[var(--text)]">{pkg.subtitle}</p>
-      <ul className="mt-[12px] space-y-[2px] font-[family:var(--font-medium)] text-[18px] leading-[1.2] text-[var(--text-dark)]">
-        {pkg.bullets.map((bullet) => (
-          <li key={bullet}>{bullet}</li>
-        ))}
+    <article
+      style={{
+        background: "#F8F3EF",
+        borderRadius: 8,
+        border: "1px solid rgba(39,20,1,0.08)",
+        padding: "20px 22px 22px",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Eyebrow */}
+      {pkg.eyebrow && (
+        <span
+          style={{
+            display: "inline-block",
+            alignSelf: "flex-start",
+            background: "#FFE4EB",
+            borderRadius: 12,
+            padding: "4px 14px",
+            fontFamily: "var(--font-medium-italic)",
+            fontSize: 13,
+            color: "#C9537C",
+            marginBottom: 10,
+          }}
+        >
+          {pkg.eyebrow}
+        </span>
+      )}
+
+      {/* Name */}
+      <h3
+        style={{
+          fontFamily: "var(--font-display)",
+          fontSize: 30,
+          lineHeight: 1.1,
+          color: "var(--text-dark)",
+          margin: 0,
+        }}
+      >
+        {pkg.name}
+      </h3>
+
+      {/* Subtitle */}
+      <p
+        style={{
+          fontFamily: "var(--font-medium-italic)",
+          fontSize: 16,
+          lineHeight: 1.3,
+          color: "var(--text-body)",
+          margin: "6px 0 0",
+          whiteSpace: "pre-line",
+        }}
+      >
+        {pkg.subtitle}
+      </p>
+
+      {/* Price */}
+      <p
+        style={{
+          fontFamily: "var(--font-price)",
+          fontSize: 48,
+          lineHeight: 1,
+          color: "#C9537C",
+          margin: "14px 0 0",
+        }}
+      >
+        {pkg.price}
+      </p>
+
+      {/* Divider */}
+      <div style={{ height: 1, background: "#D6CFCB", margin: "16px 0 14px" }} />
+
+      {/* Bullets */}
+      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        {pkg.bullets.map((bullet) => {
+          // Bold the leading number if present (e.g. "2 clothing categories" -> bold "2")
+          const match = bullet.match(/^(\d+)\s(.+)$/);
+          const dashMatch = bullet.match(/^- (.+)$/);
+          return (
+            <li
+              key={bullet}
+              style={{
+                fontFamily: "var(--font-medium)",
+                fontSize: 16,
+                lineHeight: 1.6,
+                color: "var(--text-dark)",
+              }}
+            >
+              {match ? (
+                <>
+                  <strong style={{ fontFamily: "var(--font-display)" }}>{match[1]}</strong>{" "}
+                  {match[2]}
+                </>
+              ) : dashMatch ? (
+                <>- {dashMatch[1]}</>
+              ) : (
+                bullet
+              )}
+            </li>
+          );
+        })}
       </ul>
-      <p className="mt-[12px] font-[family:var(--font-semibold)] text-[17px] leading-[1.2] text-[var(--pink-text)]">{pkg.note}</p>
-      <div className="mt-[12px]">
-        <a href="https://www.flirtwithstyle.com" target="_self" rel="noreferrer" className="wix-button-primary text-[18px]">
+
+      {/* Note */}
+      <p
+        style={{
+          fontFamily: "var(--font-medium-italic)",
+          fontSize: 15,
+          color: "#C9537C",
+          margin: "14px 0 0",
+        }}
+      >
+        {pkg.note}
+      </p>
+
+      {/* Book button */}
+      <div style={{ marginTop: 18 }}>
+        <a
+          href="https://calendar.app.google/H3H8wtu1w3xfAZVT9"
+          target="_blank"
+          rel="noreferrer"
+          className="btn-book-package"
+        >
           Book this package
         </a>
       </div>
@@ -162,8 +415,26 @@ export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
 
 export function ChatWidgetMock() {
   return (
-    <div className="fixed bottom-[22px] right-[18px] z-40 flex h-[58px] w-[58px] items-center justify-center rounded-full border border-[rgba(39,20,1,0.12)] bg-white shadow-[0_4px_18px_rgba(39,20,1,0.14)]">
-      <div className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#111] text-[18px] text-white">…</div>
+    <div
+      style={{
+        position: "fixed",
+        bottom: 22,
+        right: 22,
+        zIndex: 40,
+        width: 60,
+        height: 60,
+        borderRadius: "50%",
+        background: "#4A3728",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxShadow: "0 4px 18px rgba(39,20,1,0.18)",
+        cursor: "pointer",
+      }}
+    >
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
     </div>
   );
 }

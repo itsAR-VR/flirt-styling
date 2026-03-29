@@ -284,6 +284,7 @@ export function SiteFooter() {
 export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
   return (
     <article
+      className="package-card"
       style={{
         background: "#F8F3EF",
         borderRadius: 8,
@@ -291,6 +292,7 @@ export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
         padding: "20px 22px 22px",
         display: "flex",
         flexDirection: "column",
+        transition: "background-color 0.4s ease, border-color 0.4s ease",
       }}
     >
       {/* Eyebrow */}

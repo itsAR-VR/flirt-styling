@@ -199,6 +199,17 @@ img {
   color: var(--pink-text);
 }
 
+/* Persona card hover */
+.persona-card:hover {
+  background-color: #F3EDEA !important;
+}
+
+/* Package card hover */
+.package-card:hover {
+  background-color: #FFE4EB !important;
+  border-color: #FBBFD4 !important;
+}
+
 /* Responsive container */
 .site-container {
   width: 100%;

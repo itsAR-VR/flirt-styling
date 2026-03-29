@@ -168,7 +168,7 @@ function Hero() {
           <span style={{ fontSize: 18 }}>📱</span>
         </a>
         <Link
-          href="/about"
+          href="/online-styling"
           className="link-arrow"
           style={{ fontSize: 18 }}
         >

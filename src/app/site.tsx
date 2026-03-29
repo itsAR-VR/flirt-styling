@@ -110,7 +110,7 @@ export function SiteHeader({ activePage = "home" }: { activePage?: string }) {
       <header
         style={{
           background: "#F5A1BE",
-          padding: "18px 0 22px",
+          padding: "20px 0",
         }}
       >
         <div className="site-container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>

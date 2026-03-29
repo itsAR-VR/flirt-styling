@@ -12,6 +12,7 @@ export type PackageCard = {
   note: string;
   noteColor?: string;
   featured?: boolean;
+  borderHighlight?: string;
   bookingUrl?: string;
 };
 
@@ -32,6 +33,7 @@ export const onlinePackages: PackageCard[] = [
     bullets: ["4 clothing categories", "5 pieces each", "20 total"],
     note: "Handpicked for you",
     featured: true,
+    borderHighlight: "#F5A1BE",
   },
   {
     name: "The Soulmate",
@@ -83,6 +85,7 @@ export const closetPackages: PackageCard[] = [
     ],
     note: "Get 20% off styling!",
     featured: true,
+    borderHighlight: "#C9537C",
   },
 ];
 
@@ -288,7 +291,9 @@ export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
       style={{
         background: "#F8F3EF",
         borderRadius: 8,
-        border: "1px solid rgba(39,20,1,0.08)",
+        border: pkg.borderHighlight
+          ? `2px solid ${pkg.borderHighlight}`
+          : "1px solid rgba(39,20,1,0.08)",
         padding: "20px 22px 22px",
         display: "flex",
         flexDirection: "column",
@@ -375,7 +380,7 @@ export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
             >
               {match ? (
                 <>
-                  <strong style={{ fontFamily: "var(--font-display)" }}>{match[1]}</strong>{" "}
+                  <strong style={{ fontFamily: "var(--font-price)", fontSize: 18 }}>{match[1]}</strong>{" "}
                   {match[2]}
                 </>
               ) : dashMatch ? (

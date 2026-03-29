@@ -15,18 +15,22 @@ const personas = [
   {
     title: "Working Professionals",
     body: "Need a polished wardrobe but your schedule barely leaves room to breathe.",
+    bg: "#FFE4EB",
   },
   {
     title: "Busy Parents",
     body: "Juggling everything and still want to feel put-together without shopping being one more task.",
+    bg: "#FFDAE5",
   },
   {
     title: "Lifestyle Changers",
     body: "Something shifted. Your wardrobe needs to keep up with who you\u2019re becoming.",
+    bg: "#FFE4EB",
   },
   {
     title: "Shopping Haters",
     body: "Those who want to dress well but have no idea where to start, where to buy, or who to trust.",
+    bg: "#FFDAE5",
   },
 ];
 
@@ -64,7 +68,7 @@ function Hero() {
           fontFamily: "var(--font-display)",
           fontSize: 22,
           lineHeight: 1.2,
-          color: "var(--text-dark)",
+          color: "#271401",
           margin: "0 0 2px",
           letterSpacing: "1px",
         }}
@@ -78,7 +82,7 @@ function Hero() {
           fontFamily: "var(--font-display)",
           fontSize: 52,
           lineHeight: 1.25,
-          color: "var(--text-dark)",
+          color: "#3B1E0C",
           margin: "0 0 24px",
           maxWidth: 700,
         }}
@@ -207,7 +211,7 @@ function PersonaSection() {
           <div
             key={persona.title}
             style={{
-              background: "#FFE4EB",
+              background: persona.bg,
               borderRadius: 10,
               padding: "20px 18px",
               minHeight: 150,
@@ -221,7 +225,7 @@ function PersonaSection() {
                 fontFamily: "var(--font-display)",
                 fontSize: 18,
                 lineHeight: 1.15,
-                color: "var(--text-dark)",
+                color: "#3B1E0C",
                 margin: "0 0 10px",
               }}
             >
@@ -232,7 +236,7 @@ function PersonaSection() {
                 fontFamily: "var(--font-medium)",
                 fontSize: 15,
                 lineHeight: 1.35,
-                color: "var(--text-body)",
+                color: "#5A3520",
                 margin: 0,
               }}
             >

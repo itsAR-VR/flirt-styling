@@ -16,11 +16,11 @@
   --card-border: #FBBFD4;
   --header-pink: #F5A1BE;
 
-  /* Fonts */
-  --font-display: "Bogart Bold", serif;
-  --font-semibold: "Bogart Semibold", serif;
-  --font-medium: "Bogart Medium", serif;
-  --font-medium-italic: "Bogart Medium Italic", serif;
+  /* Fonts — Calistoga fallback provides numeric glyphs missing from Bogart */
+  --font-display: "Bogart Bold", "Calistoga", serif;
+  --font-semibold: "Bogart Semibold", "Calistoga", serif;
+  --font-medium: "Bogart Medium", "Calistoga", serif;
+  --font-medium-italic: "Bogart Medium Italic", "Calistoga", serif;
   --font-price: "Calistoga", serif;
 }
 

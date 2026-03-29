@@ -79,6 +79,38 @@
   font-display: swap;
 }
 
+/* Calistoga overrides for numeric glyphs — Bogart renders digits as symbols */
+@font-face {
+  font-family: "Bogart Bold";
+  src: url("/fonts/calistoga-real.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0024-0025, U+0030-0039; /* $ % 0-9 */
+}
+@font-face {
+  font-family: "Bogart Semibold";
+  src: url("/fonts/calistoga-real.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0024-0025, U+0030-0039;
+}
+@font-face {
+  font-family: "Bogart Medium";
+  src: url("/fonts/calistoga-real.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0024-0025, U+0030-0039;
+}
+@font-face {
+  font-family: "Bogart Medium Italic";
+  src: url("/fonts/calistoga-real.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0024-0025, U+0030-0039;
+}
+@font-face {
+  font-family: "Bogart Regular";
+  src: url("/fonts/calistoga-real.woff2") format("woff2");
+  font-display: swap;
+  unicode-range: U+0024-0025, U+0030-0039;
+}
+
 /* Base styles */
 *,
 *::before,

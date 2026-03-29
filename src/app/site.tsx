@@ -284,6 +284,18 @@ export function SiteFooter() {
   );
 }
 
+/* Helper: wraps digits and $ in Calistoga spans (Bogart lacks numeric glyphs) */
+function renderWithNumbers(text: string) {
+  const parts = text.split(/([$%]?\d+%?)/g);
+  return parts.map((part, i) =>
+    /[$%]?\d+%?/.test(part) ? (
+      <span key={i} style={{ fontFamily: "var(--font-price)" }}>{part}</span>
+    ) : (
+      part
+    )
+  );
+}
+
 export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
   return (
     <article
@@ -384,9 +396,9 @@ export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
                   {match[2]}
                 </>
               ) : dashMatch ? (
-                <>- {dashMatch[1]}</>
+                <>- {renderWithNumbers(dashMatch[1])}</>
               ) : (
-                bullet
+                renderWithNumbers(bullet)
               )}
             </li>
           );
@@ -402,7 +414,7 @@ export function PackagePreviewCard({ pkg }: { pkg: PackageCard }) {
           margin: "14px 0 0",
         }}
       >
-        {pkg.note}
+        {renderWithNumbers(pkg.note)}
       </p>
 
       {/* Book button */}
